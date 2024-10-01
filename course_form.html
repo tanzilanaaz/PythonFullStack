@@ -1,0 +1,55 @@
+{% extends 'layout.html'%}
+
+{% block title_content  %}
+    <title>Course</title>
+{% endblock %}
+
+{% block body_content  %}
+    <h1 style="color:tomato;" align="center">Add Course</h1>
+    <br>
+	<form method="POST">
+		{% csrf_token %}
+		<table align="center">
+		  <tr>
+			<td>Course Id</td>
+			<td><input type="text" name="courseid"></td>
+		  </tr>
+
+		  <tr>
+			<td>Course Name:</td>
+			<td><input type="text" name="name"></td>
+		  </tr>
+
+		  <tr>
+			<td>Course Duration</td>
+			<td><input type="text" name="duration"></td>
+		  </tr>
+
+		  <tr>
+			<td>Faculty Name</td>
+			<td><input type="text" name="faculty"></td>
+		  </tr>
+
+		  <tr>
+			<td>Mode</td>
+			<td>
+                <input type="radio" name="mode" value="online">&nbsp;Online&nbsp;
+                <input type="radio" name="mode" value="offline">&nbsp;Offline
+            </td>
+		  </tr>
+          <tr><td></td></tr>
+		  <tr>
+			<td>Submit</td>
+			<td><input type="submit" value="Add Course"></td>
+		  </tr>
+          <tr><td></td></tr>
+          <tr><td></td></tr>
+          <tr>
+              <td></td>
+              <td>
+                  <a href="{% url 'list_course' %}">Back to List Course</a>
+              </td>
+          </tr>
+		</table>
+	</form>
+{% endblock %}

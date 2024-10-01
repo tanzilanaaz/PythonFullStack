@@ -1,0 +1,45 @@
+{% extends 'layout.html'%}
+
+{% block title_content  %}
+<title>Student List</title>
+{% endblock %}
+
+{% block body_content  %}
+<h1 style="color:Red" align="center">Student List</h1>
+<table align="center" border="2">
+    <tr>
+        <th>Student ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Contact Number</th>
+        <th>Email Id</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Address</th>
+        <th>Dob</th>
+        <th>Courses</th>
+        <th>User Name</th>
+        <th>Password</th>
+    </tr>
+    {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.first_name }}</td>
+            <td>{{ student.last_name }}</td>
+            <td>{{ student.gender }}</td>
+            <td>{{ student.contact_number }}</td>
+            <td>{{ student.email_id }}</td>
+            <td>{{ student.city }}</td></td>
+            <td>{{ student.state }}</td></td>
+            <td>{{ student.address }}</td></td>
+            <td>{{ student.dob }}</td></td>
+            <td>{{ student.courses }}</td></td>
+            <td>{{ student.user_name }}</td>
+            <td>{{ student.password }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'layout.html'%}
+
+{% block title_content  %}
+    <title>Course</title>
+{% endblock %}
+
+{% block body_content  %}
+    <h1 style="color:tomato;" align="center">Update Course</h1>
+    <br>
+	<form method="POST">
+		{% csrf_token %}
+		<table align="center">
+            <input type="hidden" name="id" value="{{ course.id }}">
+		  <tr>
+			<td>Course Id</td>
+			<td><input type="text" name="courseid" value="{{ course.courseid }}"></td>
+		  </tr>
+
+		  <tr>
+			<td>Course Name:</td>
+			<td><input type="text" name="name" value="{{ course.name }}"></td>
+		  </tr>
+
+		  <tr>
+			<td>Course Duration</td>
+			<td><input type="text" name="duration" value="{{ course.duration }}"></td>
+		  </tr>
+
+		  <tr>
+			<td>Faculty Name</td>
+			<td><input type="text" name="faculty" value="{{ course.faculty }}"></td>
+		  </tr>
+
+		  <tr>
+			<td>Mode</td>
+			<td>
+				{% if course.mode == 'online' %}
+                <input type="radio" name="mode" checked value="online">&nbsp;Online
+				{% else %}
+&nbsp;				<input type="radio" name="mode" value="online">&nbsp;Online
+				{% endif %}
+
+				{% if course.mode == 'offline' %}
+                <input type="radio" name="mode" checked value="offline">&nbsp;Offline
+				{% else %}
+				<input type="radio" name="mode" value="offline">&nbsp;Offline
+				{% endif %}
+            </td>
+		  </tr>
+          <tr><td></td></tr>
+		  <tr>
+			<td>Submit</td>
+			<td><input type="submit" value="Update Course"></td>
+		  </tr>
+          <tr><td></td></tr>
+          <tr><td></td></tr>
+          <tr>
+              <td></td>
+              <td>
+                  <a href="{% url 'list_course' %}">Back to List Course</a>
+              </td>
+          </tr>
+		</table>
+	</form>
+{% endblock %}

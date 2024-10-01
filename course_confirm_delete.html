@@ -1,0 +1,34 @@
+{% extends 'layout.html'%}
+
+{% block title_content  %}
+    <title>Delete Course</title>
+{% endblock %}
+
+{% block body_content  %}
+
+<br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card shadow-sm border-0 mb-3">
+                    <div class="card-header text-bg-dark text-center">You are about to delete the Course !!!</div>
+						<div class="card-body">
+							<h5 class="card-title">Course Details</h5>
+							<p class="card-text">Course Id: {{ course.courseid }}</p>
+							<p class="card-text">Course Name: {{ course.name }}</p>
+							<p class="card-text">Course Duration: {{ course.duration }}</p>
+							<p class="card-text">Faculty Name: {{ course.faculty }}</p>
+							<p class="card-text">Mode: {{ course.mode }}</p>
+					  	</div>
+						<form method="POST">
+							{% csrf_token %}
+							<div class="modal-footer d-flex justify-content-center">
+								<button type="submit" class="btn btn-sm btn-danger" >Yes! Delete Course</button>&nbsp;
+								<a href="{% url 'list_course' %}" class="btn btn-sm btn-warning">No, Back to CourseList</a>
+							</div>
+						</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

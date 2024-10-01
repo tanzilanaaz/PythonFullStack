@@ -1,0 +1,54 @@
+{% extends 'layout.html'%}
+
+{% block title_content  %}
+    <title>Course List</title>
+{% endblock %}
+
+{% block body_content  %}
+<br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card shadow-sm border-0 mb-3">
+                    <div class="card-header text-bg-dark text-center">Course Management</div>
+                        <table class="table table-sm small table-bordered align-middle mb-0">
+                            <tr class="table-secondary">
+                                <th>ID</th>
+                                <th>Course ID</th>
+                                <th>Course Name</th>
+                                <th>Duration</th>
+                                <th>Faculty</th>
+                                <th>Mode Of Training</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+
+                            {% for course in courses %}
+                            <tr>
+                              <td>{{ course.id }}</td>
+                              <td>{{course.courseid}}</td>
+                              <td>{{course.name}}</td>
+                              <td>{{course.duration}}</td>
+                              <td>{{course.faculty}}</td>
+                              <td>{{course.mode}}</td>
+                              <td>
+                                <div class="d-grid">
+                                    <a href="{% url 'update_course' pk=course.id %}" class="btn btn-sm btn-warning">Edit</a>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="d-grid">
+                                    <a href="{% url 'delete_course' pk=course.id %}" class="btn btn-sm btn-danger">Delete</a>
+                                </div>
+                              </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    <div>
+                        <a href="{% url 'add_course' %}" class="btn btn-primary btn-sm">Add Course</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'layout.html'%}
+
+{% block title_content  %}
+<title>Student Form</title>
+{% endblock %}
+
+{% block body_content  %}
+
+<form method="POST">
+    <h1 style="color: green" align="center">Student Registration Form</h1>
+    {% csrf_token %}
+    <table align="center">
+        <tr>
+            <td>First Name</td>
+            <td><input type="text" name="first_name"></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><input type="text" name="last_name"></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female
+            </td>
+        </tr>
+        <tr>
+            <td>Contact Number</td>
+            <td><input type="text" name="contact_num"></td>
+        </tr>
+        <tr>
+            <td>Email Address</td>
+            <td><input type="text" name="email_id"></td>
+        </tr>
+        <tr>
+            <td>Select your City</td>
+            <td><select name="city">
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Amaravati">Amaravati</option>
+                <option value="Mysore">Mysore</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Select your State</td>
+            <td><select name="state">
+                <option value="Karnataka">Karnataka</option>
+                <option value="TamilNadu">TamilNadu</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Telangana">Telangana</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><textarea rows="5" cols="50" name="address"></textarea></td>
+        </tr>
+        <tr>
+            <td>Date of birth</td>
+            <td><input type="date" name="dob"></td>
+        </tr>
+        <tr>
+            <td>Select your courses</td>
+            <td>
+                <input type="checkbox" name="python" value="python"><label>Python</label> <br>
+                <input type="checkbox" name="java" value="java"><label>Java</label> <br>
+                <input type="checkbox" name="net" value=".net"><label>.Net</label> <br>
+                <input type="checkbox" name="bigdata" value="bigdata"><label>Big Data</label> <br>
+                <input type="checkbox" name="datascience" value="datascience"><label>Data Science</label>
+            </td>
+        </tr>
+        <tr>
+            <td>User Name</td>
+            <td><input type="text" name="user_name"></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="submit" value="Create Student"></td>
+        </tr>
+        <tr>
+            <td><a href="/student/student-list/">List Students</a></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}
