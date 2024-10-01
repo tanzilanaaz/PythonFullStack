@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <h1 style = "color:Red" align="center">Calculator App</h1>
+    <table align="center">
+        <tr>
+            <td>Enter first number : </td>
+            <td><input type="text" name="first_num"></td>
+        </tr>
+
+        <tr>
+            <td>Enter second number : </td>
+            <td><input type="text" name="second_num"></td>
+        </tr>
+
+        <tr>
+            <td>Select Operation : </td>
+            <td> <select name="Operation" >
+                <option value="addition">Addition</option>
+                <option value="subtraction">Subtraction</option>
+                <option value="multiplication">Multiplication</option>
+                <option value="division">Division</option>
+            </select>
+            </td>
+        </tr>
+
+        <tr></tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Calculate"></td>
+        </tr>
+
+    </table>
+
+    <h3 style="color: blue" align="center"> {{ Operation }} of {{ first_num }}, {{ second_num }} is: {{ result }}</h3>
+</form>
+</body>
+</html>
